@@ -1,0 +1,38 @@
+ ArrayList especialidades  = new ArrayList();
+        int x=0;
+        do {
+            String nombreEsp = JOptionPane.showInputDialog("Digite el nombre de la especialidad: ");
+            int idEsp = Integer.parseInt(JOptionPane.showInputDialog("Digite el codigo de la especialidad: "));
+            int duracionEsp = Integer.parseInt(JOptionPane.showInputDialog("Digite la duracion de la especialidad: "));
+            int valorEsp = Integer.parseInt(JOptionPane.showInputDialog("Digite el valor de la especialidad: "));
+            x = Integer.parseInt(JOptionPane.showInputDialog("Desea continuar \nSi= 1 \n No=0 "));
+            Especialidad newEsp = new Especialidad(idEsp, duracionEsp, valorEsp, nombreEsp);
+            especialidades.add(newEsp);  
+            
+        }while(x==1);
+        
+        
+        
+        Especialidad e= new Especialidad(1, 2, 80000, "Pediatria");
+        Doctor doc= new Doctor(1032493392, "Natalia", "nra@doc.com", "c://", e, 19);
+        
+        System.out.print(doc.getEspecialidad().getNombre());
+    }
+    /*public static Especialidad buscarEsp(ArrayList especialidad)
+        {
+        int codEsp = Integer.parseInt(JOptionPane.showInputDialog("Digite el codigo de la especialidad que desea buscar: "));
+        for(int i=0;i<especialidades.size(); i++)
+        {
+          Especialidad docEsp= (Especialidad)especialidades.get(i);
+          
+          if(docEsp.getId() == codEsp)
+          {
+              
+          }else
+          {
+              
+          }
+          
+        }
+            return 0;
+        }*/

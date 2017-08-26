@@ -1,0 +1,119 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package asociacion;
+
+/**
+ *
+ * @author Fuller 101
+ */
+public class Cita {
+    
+    private int hora;
+    private String fecha;
+    private String estado;
+    private int valor;
+    private Doctor doctor;
+    private Paciente paciente;
+    public Cita()
+    {        
+        doctor = new Doctor();
+        paciente = new Paciente();
+    }
+    
+    public Cita(int hora, String fecha,String estado,int valor, Doctor doctor, Paciente paciente)
+    {  
+        this.estado=estado;
+        this.fecha = fecha;
+        this.hora = hora; 
+        this.valor = valor;
+        this.doctor = doctor;
+        this.paciente = paciente;
+    }
+
+    /**
+     * @return the hora
+     */
+    public int getHora() {
+        return hora;
+    }
+
+    /**
+     * @param hora the hora to set
+     */
+    public void setHora(int hora) {
+        this.hora = hora;
+    }
+
+    /**
+     * @return the fecha
+     */
+    public String getFecha() {
+        return fecha;
+    }
+
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    /**
+     * @return the estado
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * @return the valor
+     */
+    public int getValor() {
+        return valor;
+    }
+
+    /**
+     * @param valor the valor to set
+     */
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
+    /**
+     * @return the doctor
+     */
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    /**
+     * @param doctor the doctor to set
+     */
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    /**
+     * @return the paciente
+     */
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    /**
+     * @param paciente the paciente to set
+     */
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+}
