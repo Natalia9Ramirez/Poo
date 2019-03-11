@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -16,24 +17,42 @@ class extraer{
 	  string generar()
 		{
 			string salida = "";
-			string anios="", sueldo="";
+			string cc="", nombre="", cargo="";
+			int anios[3];
+			int sueldo[10];
+			string datos[100];
+			int band=0;int coma=0;
+			
 			for(int i=0; i<linea.length(); i++)
-			{
-				if(i<42 && i>33){
-					sueldo= sueldo + linea.at(i);
+			{			
+				if(linea.at(i)==','){
+					coma++;
+					for	(int j=0;j<i;j++)
+					{	band= i;
+						cc=cc+linea.at(j);
+						for(int k=i; k<i;k++)
+						{
+						nombre=nombre+linea.at(k);	
+						}
+					}
+				
 				}
-				if(i<45 && i>42)
-				{
-					
-					anios=anios + linea.at(i);
-					printf("%s",anios.c_str());
-				}
-			}
-			salida= sueldo+"anios:"+anios;
+		}
+			
+			salida= cc+nombre;
 			return (salida);
-		}  
-}
-;
+		}
+	
+		int toInt(string valor)
+		{
+			int i;
+			std :: stringstream ss;
+			std :: string s = valor;
+			ss << s;
+			ss >> i;
+			return (i);
+		}
+};
 
 class procesar 
 {
