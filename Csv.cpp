@@ -16,31 +16,44 @@ class extraer{
 	  }	   
 	  string generar()
 		{
+			string dato="";
 			string salida = "";
 			string cc="", nombre="", cargo="";
-			int anios[3];
-			int sueldo[10];
-			string datos[100];
-			int band=0;int coma=0;
+			int band=0; int coma=0;
 			
 			for(int i=0; i<linea.length(); i++)
 			{			
 				if(linea.at(i)==','){
 					coma++;
-					for	(int j=0;j<i;j++)
+					
+					switch(coma)
+					{
+						case 1:
+							cc=dato;
+							printf("%s\n", dato.c_str());
+							dato="";
+							i++;
+							break;
+						case 2:
+							nombre=dato;
+							printf("%s\n",nombre.c_str());
+						break;						
+							
+					}
+					
+					/*for	(int j=0;j<i;j++)
 					{	band= i;
 						cc=cc+linea.at(j);
-						for(int k=i; k<i;k++)
-						{
-						nombre=nombre+linea.at(k);	
-						}
-					}
+					}*/
 				
+				}else
+				{
+					dato=dato+linea.at(i);
 				}
 		}
 			
-			salida= cc+nombre;
-			return (salida);
+			/*salida= cc;
+			return (salida);*/
 		}
 	
 		int toInt(string valor)
