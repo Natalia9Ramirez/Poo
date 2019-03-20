@@ -1,0 +1,129 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ordenlineal;
+
+/**
+ *
+ * @author Sala_09
+ */
+class ordenLineal1 {
+
+    int a[];
+
+    public ordenLineal1(int a[]) {
+        this.a = a;
+    }
+
+    public void ordenar() {
+        int aux;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[i] > a[j]) {
+                    aux = a[i];
+                    a[i] = a[j];
+                    a[j] = aux;
+                }
+            }
+        }
+    }
+
+    void imprimir() {
+        System.out.println("Valores ordenados:");
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i] + " ");
+        }
+    }
+}
+
+public class OrdenLineal {
+
+    int a[];
+    int tam;
+    int lon;
+
+    public OrdenLineal(int tam) {
+        this.tam = tam;
+        a = new int[tam];
+        lon = 0;
+    }
+
+    public void insertar(int dato) {
+        int cont;
+        int k;
+        int i;
+        if (lon < tam) {
+            i = dato % tam;
+            if (a[i] == 0) {
+                a[i] = dato;
+                System.out.println("Ha sido insertado el valor " + dato + " en la posicion " + i);
+                lon++;
+            } else {
+                cont = 0;
+                System.out.println("En el índice " + i + " calculado ya existe el valor " + a[i] + " se buscará donde guardar al valor " + dato);
+                while (cont < tam && a[i] != 0) {
+                    i++;
+                    i = i % tam;
+                    cont++;
+                }
+                a[i] = dato;
+                lon++;
+                System.out.println("Ha sido insertado el valor " + dato + " en la posicion " + i + " luego de buscar debido a posición ya ocupada (colisión)");
+            }
+        } else {
+            System.out.println("Estructura llena");
+        }
+
+    }
+
+    public void buscar(int dato) {
+        int i;
+        i = dato % tam;
+        for (int j = 0; j < tam; j++) {
+            if (a[j] == dato) {
+                System.out.println("Se encontro el dato " + dato + " en la posicion " + (j+1)+ "\n"
+                        + a[j]);
+            }
+        }
+
+    }
+    
+    public void mostrar()
+    {
+        for (int i = 0; i < tam; i++) {
+            System.out.println("Posición:"
+                        + (i+1)+ " => dato "+a[i] + " ");
+            
+        }
+    }
+
+    public static void main(String args[]) {
+        OrdenLineal t = new OrdenLineal(5);
+        t.insertar(11);
+        t.insertar(22);
+        t.insertar(23);
+        t.insertar(15);
+        t.insertar(10);
+
+        t.insertar(16);
+        t.mostrar();
+        t.buscar(10);
+        
+        
+        
+
+        //---------------------------orden Lineal
+        /*int a[] = {4, 3, 2, 1};
+        ordenLineal1 o = new ordenLineal1(a);
+        System.out.println("Datos antes de ordenar");
+        o.imprimir();
+        System.out.println("-----------------");
+        System.out.println("Datos después de ordenar");
+        o.ordenar();
+        o.imprimir();
+         */
+    }
+
+}
